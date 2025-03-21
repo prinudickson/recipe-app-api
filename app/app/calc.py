@@ -2,6 +2,7 @@
 _summary_ Calculator Functions
 """
 
+
 def add(x, y):
     """
     Add two numbers
@@ -15,6 +16,7 @@ def add(x, y):
     """
     return x+y
 
+
 def substract(x, y):
     """
     Substract two numbers
@@ -22,7 +24,7 @@ def substract(x, y):
     Parameters
     ----------
     x : numeric
-        First number to be substracted from 
+        First number to be substracted from
     y : numeric
         Second number to be substracted
     """
