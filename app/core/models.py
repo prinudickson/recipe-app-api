@@ -15,20 +15,40 @@ class UserManager(BaseUserManager):
     BaseUserManager : _type_
         _description_
     """
-    def create_user(self, email, password=None, **extra_field):
+    def create_user(self, email, password=None, **extra_fields):
         """
         Create, Save and return a new user
 
         Parameters
         ----------
-        email : _type_
+        email : text
             _description_
-        password : _type_, optional
+        password : text, optional
             _description_, by default None
         """
-        user = self.model(email=email, **extra_field)
+        if not email:
+            raise ValueError('User must have email address')
+        user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
-        user.save(self._db)
+        user.save(using=self._db)
+
+        return user
+
+    def create_superuser(self, email, password):
+        """
+        Creates and returns a superuser
+
+        Parameters
+        ----------
+        email : _type_
+            _description_
+        password : _type_
+            _description_
+        """
+        user = self.create_user(email, password)
+        user.is_staff = True
+        user.is_superuser = True
+        user.save(using=self._db)
 
         return user
 
