@@ -6,3 +6,6 @@ Recipe API Project
 
 # Install/ Create Django Project
 `pdickson004@NL_YRY2K5F7L7 recipe-app-api % docker-compose run --rm app sh -c "django-admin startproject app ."`
+
+# Run Tests
+`(recipe-app-api) pdickson004@NL_YRY2K5F7L7 recipe-app-api % docker-compose run --rm app sh -c "python manage.py test"`
