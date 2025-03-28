@@ -37,8 +37,6 @@ class AdminSiteTests(TestCase):
             name='Test User'
         )
 
-        #return super().setUp()
-
     def test_users_list(self):
         """
         Test that users are listed on page.
@@ -66,4 +64,3 @@ class AdminSiteTests(TestCase):
         res = self.client.get(url)
 
         self.assertEqual(res.status_code, 200)
-
